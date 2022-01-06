@@ -10,11 +10,11 @@ class Bird {
         this.weight = 1;
     }
     update() {
-
+        let curve = Math.sin(angle) * 20;
 
         //To sure that bird will never fall off from screenview
-        if (this.y > canvas.height - this.height) {
-            this.y = canvas.height - this.height;
+        if (this.y > canvas.height - (this.height * 3) + curve) {
+            this.y = canvas.height - (this.height * 3) + curve;
             this.vy = 0;
         } else {
             //For each frame vy will increase by weight
@@ -31,7 +31,7 @@ class Bird {
             this.y = this.height;
             this.vy = 0
         }
-        if (spacePressed) this.flap();
+        if (spacePressed && this.y > this.height * 3) this.flap();
     }
     draw() {
         ctx.fillStyle = 'red';

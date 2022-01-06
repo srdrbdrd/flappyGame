@@ -27,8 +27,12 @@ function animate() {
     //ctx.fillRect(10, 10, 50, 50)
     bird.update();
     bird.draw();
+    //render particles
+    handleParticles();
     //Javascript recursion (funtion calls itself for infinite loop)
     requestAnimationFrame(animate);
+    angle += 0.12;
+    hue++;
 }
 animate();
 

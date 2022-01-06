@@ -29,10 +29,13 @@ function animate() {
     bird.draw();
     //render particles
     handleParticles();
+    //render obstacles
+    handleObstacles()
     //Javascript recursion (funtion calls itself for infinite loop)
     requestAnimationFrame(animate);
     angle += 0.12;
     hue++;
+    frame++;
 }
 animate();
 

@@ -14,3 +14,29 @@ let hue = 0;
 
 //Frame count of loop
 let frame = 0;
+
+//Game point for every obstacle passed
+let score = 0;
+
+// Game frame speed 
+let gameSpeed = 2;
+
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //ctx.fillRect(10, 10, 50, 50)
+    bird.update();
+    bird.draw();
+    //Javascript recursion (funtion calls itself for infinite loop)
+    requestAnimationFrame(animate);
+}
+animate();
+
+//To check space pressed or not
+window.addEventListener('keydown', function (e) {
+    if (e.code === 'Space') spacePressed = true;
+});
+
+window.addEventListener('keyup', function (e) {
+    if (e.code === 'Space') spacePressed = false;
+})

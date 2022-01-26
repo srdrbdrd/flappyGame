@@ -4,7 +4,7 @@ canvas.width = 600;
 canvas.height = 400;
 
 //To check space pressed
-let spacePressed = false;
+let arrowPressed = false;
 
 //To check move up and down
 let angle = 0;
@@ -55,7 +55,7 @@ function animate() {
     bird.update();
     bird.draw();
 
-    ctx.fillStyle = 'black'
+    ctx.fillStyle = 'white'
     ctx.font = '70px Arial';
     ctx.fillText(score, 450, 70);
 
@@ -71,11 +71,12 @@ animate();
 
 //To check space pressed or not
 window.addEventListener('keydown', function (e) {
-    if (e.code === 'Space') spacePressed = true;
+    console.log(e)
+    if (e.code === 'ArrowUp') arrowPressed = true;
 });
 
 window.addEventListener('keyup', function (e) {
-    if (e.code === 'Space') spacePressed = false;
+    if (e.code === 'ArrowUp') arrowPressed = false;
     bird.frameX = 0
 })
 
@@ -95,7 +96,7 @@ function handleCollision() {
             collisionSound.play();
             console.log("Crashed");
             ctx.font = "30px Arial";
-            ctx.fillStyle = 'black';
+            ctx.fillStyle = 'white';
             ctx.fillText('Game Over, your score is: ' + score, 120, canvas.height / 2)
             return true;
         }
